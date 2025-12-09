@@ -2,7 +2,6 @@ const cells = document.querySelectorAll(".cell");
 const statusText = document.getElementById("status");
 
 let board = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer = "X";
 let isGameOver = false;
 
 let currentPlayer = Math.random() < 0.5 ? "X" : "O";
@@ -59,7 +58,7 @@ function restartGame() {
   board = ["", "", "", "", "", "", "", "", ""];
   currentPlayer = Math.random() < 0.5 ? "X" : "O"; // RANDOM START
   isGameOver = false;
-  statusText.textContent = "Player X's Turn";
+  statusText.textContent = `Player ${currentPlayer}'s Turn`;
   cells.forEach((cell) => (cell.textContent = ""));
 }
 
@@ -81,4 +80,5 @@ card.addEventListener("mousemove", (e) => {
 card.addEventListener("mouseleave", () => {
   card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
 });
+
 
