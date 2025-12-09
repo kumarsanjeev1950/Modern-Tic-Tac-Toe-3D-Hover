@@ -5,6 +5,9 @@ let board = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let isGameOver = false;
 
+let currentPlayer = Math.random() < 0.5 ? "X" : "O";
+statusText.textContent = `Player ${currentPlayer}'s Turn`;
+
 const winPatterns = [
   [0, 1, 2],
   [3, 4, 5],
@@ -54,7 +57,7 @@ function checkWinner() {
 
 function restartGame() {
   board = ["", "", "", "", "", "", "", "", ""];
-  currentPlayer = "X";
+  currentPlayer = Math.random() < 0.5 ? "X" : "O"; // RANDOM START
   isGameOver = false;
   statusText.textContent = "Player X's Turn";
   cells.forEach((cell) => (cell.textContent = ""));
@@ -78,3 +81,4 @@ card.addEventListener("mousemove", (e) => {
 card.addEventListener("mouseleave", () => {
   card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
 });
+
